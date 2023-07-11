@@ -1,5 +1,5 @@
 lib
-build
+build*
 *.mexa64
 *.pyc
 .vscode
