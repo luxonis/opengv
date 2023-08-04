@@ -57,7 +57,7 @@ ENDIF()
 # list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/modules/")
 message("CMAKE_MODULE_PATH: ${CMAKE_MODULE_PATH}")
 
-find_package(Eigen3 REQUIRED)
+find_package(Eigen3 CONFIG REQUIRED)
 # set(ADDITIONAL_INCLUDE_DIRS ${EIGEN_INCLUDE_DIRS} ${EIGEN_INCLUDE_DIR}/unsupported)
 MESSAGE("Eigen3_INCLUDE_DIRS variable set to  ${EIGEN3_INCLUDE_DIR}")
 include_directories(${EIGEN3_INCLUDE_DIR} ${EIGEN3_INCLUDE_DIR}/unsupported)
