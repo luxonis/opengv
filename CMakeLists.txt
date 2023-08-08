@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.1.3)
 if(NOT WIN32)
     set(HUNTER_CONFIGURATION_TYPES "Release" CACHE STRING "Hunter dependencies list of build configurations")
 endif()
-set(HUNTER_STATUS_DEBUG ON)
 
 include("cmake/HunterGate.cmake")
 HunterGate(
