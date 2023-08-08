@@ -1,4 +1,17 @@
 cmake_minimum_required(VERSION 3.1.3)
+
+if(NOT WIN32)
+    set(HUNTER_CONFIGURATION_TYPES "Release" CACHE STRING "Hunter dependencies list of build configurations")
+endif()
+set(HUNTER_STATUS_DEBUG ON)
+
+include("cmake/HunterGate.cmake")
+HunterGate(
+    URL "https://github.com/cpp-pm/hunter/archive/v0.23.322.tar.gz"
+    SHA1 "cb0ea1f74f4a2c49a807de34885743495fccccbe"
+    LOCAL # Local config for dependencies
+)
+
 project(opengv VERSION 1.0 LANGUAGES CXX)
 
 # Set the build type.  Options are:
@@ -55,7 +68,7 @@ ENDIF()
 
 # set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/modules/")
 # list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/modules/")
-message("CMAKE_MODULE_PATH: ${CMAKE_MODULE_PATH}")
+hunter_add_package(Eigen)
 
 find_package(Eigen3 CONFIG REQUIRED)
 # set(ADDITIONAL_INCLUDE_DIRS ${EIGEN_INCLUDE_DIRS} ${EIGEN_INCLUDE_DIR}/unsupported)
